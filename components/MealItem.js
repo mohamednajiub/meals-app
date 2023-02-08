@@ -1,8 +1,6 @@
 import { Text, View, Pressable, Image, StyleSheet, Platform } from "react-native";
 
 function MealItem({ item }) {
-    console.log("🚀 ~ file: MealItem.js:4 ~ MealItem ~ item", item);
-    console.log();
     const { imageUrl, title, duration, complexity, affordability } = item;
     return (
         <View style={styles.mealItem}>
