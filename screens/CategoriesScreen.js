@@ -3,6 +3,7 @@ import CategoryGridTile from "../components/CategoryGridTile";
 import { useNavigation } from "@react-navigation/native";
 
 import { CATEGORIES } from "../data/dummy-data";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function renderCategoryItem(itemData, navigation) {
     function pressHandler() {
@@ -22,12 +23,14 @@ function renderCategoryItem(itemData, navigation) {
 
 function CategoriesScreen({ navigation }) {
     return (
-        <FlatList
-            data={CATEGORIES}
-            keyExtractor={(item) => item.id}
-            renderItem={(item) => renderCategoryItem(item, navigation)}
-            numColumns={2}
-        />
+        <SafeAreaView>
+            <FlatList
+                data={CATEGORIES}
+                keyExtractor={(item) => item.id}
+                renderItem={(item) => renderCategoryItem(item, navigation)}
+                numColumns={2}
+            />
+        </SafeAreaView>
     );
 }
 

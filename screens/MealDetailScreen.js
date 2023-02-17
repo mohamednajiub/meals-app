@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Button, Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import IconButton from "../components/IconButton";
 import MealDetails from "../components/MealDetails";
 
@@ -22,36 +23,38 @@ function MealDetailScreen({ route, navigation }) {
     }
 
     return (
-        <ScrollView style={{ marginBottom: 32 }}>
-            <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
-            <Text style={styles.title}>{selectedMeal.title}</Text>
-            <MealDetails
-                duration={selectedMeal.duration}
-                complexity={selectedMeal.complexity}
-                affordability={selectedMeal.affordability}
-                textStyle={styles.textStyle}
-            />
+        <SafeAreaView>
+            <ScrollView style={{ marginBottom: 32 }}>
+                <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+                <Text style={styles.title}>{selectedMeal.title}</Text>
+                <MealDetails
+                    duration={selectedMeal.duration}
+                    complexity={selectedMeal.complexity}
+                    affordability={selectedMeal.affordability}
+                    textStyle={styles.textStyle}
+                />
 
-            <Text style={styles.subTitle}>Ingredients</Text>
+                <Text style={styles.subTitle}>Ingredients</Text>
 
-            {selectedMeal.ingredients.map((ingredient) => {
-                return (
-                    <View key={ingredient} style={styles.listItem}>
-                        <Text style={styles.listText}>{ingredient}</Text>
-                    </View>
-                );
-            })}
+                {selectedMeal.ingredients.map((ingredient) => {
+                    return (
+                        <View key={ingredient} style={styles.listItem}>
+                            <Text style={styles.listText}>{ingredient}</Text>
+                        </View>
+                    );
+                })}
 
-            <Text style={styles.subTitle}>Steps</Text>
+                <Text style={styles.subTitle}>Steps</Text>
 
-            {selectedMeal.steps.map((step) => {
-                return (
-                    <View key={step} style={styles.listItem}>
-                        <Text style={styles.listText}>{step}</Text>
-                    </View>
-                );
-            })}
-        </ScrollView>
+                {selectedMeal.steps.map((step) => {
+                    return (
+                        <View key={step} style={styles.listItem}>
+                            <Text style={styles.listText}>{step}</Text>
+                        </View>
+                    );
+                })}
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import MealItem from "../components/MealItem";
 import { MEALS, CATEGORIES } from "../data/dummy-data";
 
@@ -21,13 +22,13 @@ function MealsOverviewScreen({ route, navigation }) {
     }, [categoryId, navigation]);
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <FlatList
                 data={new_meals}
                 keyExtractor={(item) => item.id}
                 renderItem={(itemData) => <MealItem item={itemData.item} />}
             />
-        </View>
+        </SafeAreaView>
     );
 }
 
