@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
+import MealDetailScreen from "./screens/MealDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,16 @@ export default function App() {
                         //     };
                         // }}
                         component={MealsOverviewScreen}
+                    />
+                    <Stack.Screen
+                        name="MealDetail"
+                        // options={({ route, navigation }) => {
+                        //     const categoryId = route.params.categoryId;
+                        //     return {
+                        //         title: categoryId
+                        //     };
+                        // }}
+                        component={MealDetailScreen}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
