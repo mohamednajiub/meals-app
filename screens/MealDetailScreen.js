@@ -21,8 +21,8 @@ function MealDetailScreen({ route }) {
 
             {selectedMeal.ingredients.map((ingredient) => {
                 return (
-                    <View style={styles.listItem}>
-                        <Text key={ingredient}>{ingredient}</Text>
+                    <View key={ingredient} style={styles.listItem}>
+                        <Text style={styles.listText}>{ingredient}</Text>
                     </View>
                 );
             })}
@@ -31,8 +31,8 @@ function MealDetailScreen({ route }) {
 
             {selectedMeal.steps.map((step) => {
                 return (
-                    <View style={styles.listItem}>
-                        <Text key={step}>{step}</Text>
+                    <View key={step} style={styles.listItem}>
+                        <Text style={styles.listText}>{step}</Text>
                     </View>
                 );
             })}
